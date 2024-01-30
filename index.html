@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuadrado con Triángulos Rellenos</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .triangle-top {
+            position: absolute;
+            top: 0;
+            left: 0%;
+            width: 300px;
+            height: 100px;
+            animation: triangle-top 2s  forwards ;
+            background-color: rgb(255,50,53);        
+            clip-path: polygon(50% 100%, 100% 0%, 0% 0%);
+        }
+
+        @keyframes triangle-top{
+          
+            100%{
+                transform: translateY(-100%) rotateX(180deg); 
+            }
+        }
+        .triangle-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0%;
+            width: 300px;
+            height: 100px;
+            
+            background-color: rgb(255,133,139);
+            clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+        }
+
+        .triangle-right {
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 150px;
+            height: 200px;
+           
+            background-color: rgb(255,152,159);
+            clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+        }
+
+        .triangle-left {
+            position: absolute;
+            top: 0%;
+            left: 150px;
+            width: 150px;
+            height: 200px;
+            background-color: rgb(255,152,159);
+            clip-path: polygon(100% 0%, 0% 50%, 100% 100%);
+        }
+
+        .container-card {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            height: 200px;
+            position: fixed;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container-card">
+        <div class="triangle-top"></div>
+        <div class="triangle-right"></div>
+        <div class="triangle-bottom"></div>
+        <div class="triangle-left"></div>
+    </div>
+</body>
+
+</html>
