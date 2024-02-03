@@ -1,0 +1,266 @@
+/* Ejemplo usando Normalize.css */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css');
+
+
+:root {
+    --color-triangleTop-1: #ff3253;
+    --color-triangle-2: #ff859b;
+    --color-letter: rgb(251, 215, 225);
+    --background: rgb(251, 215, 225);
+    --color-heart: rgb(203, 19, 1);
+}
+
+
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+
+
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--background);
+    width: 100%;
+}
+
+/* body {
+    overflow-x: hidden;  Evitar desplazamiento horizontal
+} */
+
+
+
+
+.landscape-message {
+    display: none;
+    /* Oculta el mensaje en modo portrait en dispositivos móviles */
+}
+
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+
+    .landscape-message {
+        display: block;
+        /* Muestra el mensaje en modo landscape en computadoras */
+        font-size: 18px;
+        /* Ajusta el tamaño del texto si es necesario */
+        margin-top: 20px;
+        /* Ajusta el margen superior si es necesario */
+    }
+
+    .button-container,
+    .button {
+        display: none;
+        /* Oculta el contenedor de botones si es necesario */
+    }
+
+    .container-card {
+        display: none;
+        /* Ajusta el margen superior si es necesario */
+    }
+}
+
+.container-card {
+    margin-top: calc(50vh - 200px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    height: 200px;
+    position: relative;
+}
+
+.triangle-top {
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 300px;
+    height: 150px;
+    transform-origin: top;
+    transition: transform 1s ease;
+    background-color: rgb(255, 50, 53);
+    clip-path: polygon(50% 100%, 100% 0%, 0% 0%);
+
+    z-index: 120;
+}
+
+.triangle-top.triangle-top-open {
+
+    transform: rotateX(180deg);
+
+}
+
+.triangle-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0%;
+    width: 300px;
+    height: 100px;
+    background-color: rgb(255, 133, 139);
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+    z-index: 120;
+
+
+
+}
+
+.triangle-right {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 150px;
+    height: 200px;
+    background-color: rgb(255, 152, 159);
+    clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+    z-index: 120;
+}
+
+.triangle-left {
+    position: absolute;
+    top: 0%;
+    left: 150px;
+    width: 150px;
+    height: 200px;
+    background-color: rgb(255, 152, 159);
+    clip-path: polygon(100% 0%, 0% 50%, 100% 100%);
+    z-index: 120;
+}
+
+
+
+.container-card .letter {
+    margin: 0 10px 0 10px;
+    width: 95%;
+    height: 90%;
+    background-color: #1a07eb;
+    border: 1px solid white;
+
+
+
+}
+
+
+
+.container-letter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border: none;
+
+
+
+}
+
+.container-letter .letter {
+
+    height: 100%;
+    background-color: var(--color-letter);
+    position: absolute;
+    transition: transform 1s ease;
+    z-index: 100;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: center;
+    padding: 10px;
+
+}
+
+.letter-open {
+
+    transform: translateY(-100px);
+    z-index: 100;
+
+}
+
+.container-letter .letter p {
+
+    margin-top: 10px;
+    word-spacing: 6px;
+    line-height: 1;
+    /* Ajusta este valor según tus necesidades */
+    max-height: 4 em;
+    /* Multiplica el line-height por el número deseado de filas */
+    text-align: center;
+    font-size: 19px;
+    font-family: 'Lobster', cursive;
+
+}
+
+.container-letter .letter span {
+    font-size: 19px;
+    font-family: 'Lobster', cursive;
+    text-align: center;
+
+}
+
+.container-letter .letter-white {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 1s ease;
+    width: 95%;
+    height: 70%;
+    background-color: #e81f1f;
+    z-index: 110;
+}
+
+.letter-white-open {
+
+    transform: translateY(25px);
+    z-index: 110;
+
+}
+
+
+/* ... Resto de tu CSS ... */
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid rgb(255, 133, 139);
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.button {
+
+    border: 2px solid rgb(255, 133, 139);
+    color: rgb(255, 133, 139);
+    padding: 10px 30px;
+    margin: 10px 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 10px;
+    /* Ajustar el espacio entre los botones */
+}
+
+.button:hover {
+    background-color: rgb(255, 133, 139);
+    color: white;
+}
+
+/*  Corazón */
+.heart {
+    position: absolute;
+    width: 40px;
+    /* Ajusta el ancho del corazón */
+    height: 40px;
+    /* Ajusta la altura del corazón */
+    background-color: var(--color-heart);
+    transform: rotate(-45deg);
+    margin-top: 22.5px;
+    /* Ajusta el margen superior del corazón */
+    z-index: 113;
+}
